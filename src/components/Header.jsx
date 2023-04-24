@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <>
-      <div className="flex justify-between items-center  text-red-500 p-5 font-bold border-b-2 border-gray-500">
+      <div className="sticky header top-0 flex justify-between items-center  text-red-500 p-5 font-bold border-b-2 border-gray-500">
         <Link to={"/"}>
           <span>
             Film<span className="text-white">in</span>
