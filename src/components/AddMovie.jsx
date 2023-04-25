@@ -22,6 +22,12 @@ const AddMovie = () => {
         timer: 3000,
       });
       setLoader(false);
+      setForm({
+        title: "",
+        year: "",
+        description: "",
+        image: "",
+      });
     } catch (error) {
       swal({
         title: error,
