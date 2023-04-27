@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "./firebase/firebase";
 import { ThreeCircles } from "react-loader-spinner";
+import Reviews from "./Reviews";
 
 const Details = () => {
   const { id } = useParams();
@@ -12,6 +13,8 @@ const Details = () => {
     year: "",
     image: "",
     description: "",
+    rating: 0,
+    rated: 0,
   });
   const [loader, setLoader] = useState(false);
   useEffect(() => {
@@ -20,6 +23,7 @@ const Details = () => {
       const _doc = doc(db, "movies", id);
       const _data = await getDoc(_doc);
       setData(_data.data());
+      console.log(_data.data());
       setLoader(false);
     }
     getData();
@@ -47,12 +51,13 @@ const Details = () => {
                   className="m-2"
                   size={30}
                   half={true}
-                  value={4.5}
+                  value={data.rating / data.rated}
                   edit={false}
                 />
               </h1>
               <p className="ml-4 mt-2 w-2/2">{data.description}</p>
-            </div>{" "}
+              <Reviews id={id} preRating={data.rating} userRated={data.rated} />
+            </div>
           </>
         )}
       </>

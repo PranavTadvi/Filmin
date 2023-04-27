@@ -36,7 +36,7 @@ const Cards = () => {
               >
                 <img
                   src={items.image}
-                  className=" h-64md:h-80 m-2 rounded-md"
+                  className=" h-64 md:h-80 m-2 rounded-md"
                 />
                 <h1 className="">
                   <span className=" mr-3 text-gray-400">Name:</span>
@@ -44,7 +44,12 @@ const Cards = () => {
                 </h1>
                 <h1 className="flex items-center">
                   <span className=" mr-3 text-gray-400 ">Rating:</span>
-                  <ReactStars size={20} half={true} value={5} edit={false} />
+                  <ReactStars
+                    size={20}
+                    half={true}
+                    value={items.rating / items.rated}
+                    edit={false}
+                  />
                 </h1>
                 <h1 className="">
                   <span className=" mr-3 text-gray-400">Year:</span>
